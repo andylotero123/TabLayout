@@ -62,11 +62,14 @@ public class Fragment1 extends Fragment {
         adapterLista.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navController = Navigation.findNavController(view);
+                //navController = Navigation.findNavController(view);
                 Bundle enviarComponente = new Bundle();
-                enviarComponente.putSerializable("mi_componente", listaComponente.get(recyclerViewComponente.getChildAdapterPosition(view)));
-                getParentFragmentManager().setFragmentResult("altavoz", enviarComponente);
-                navController.navigate(R.id.fragmentDetalle);
+                String dato = "AMD";
+                enviarComponente.putSerializable("mi_dato", listaComponente.get(recyclerViewComponente.getChildAdapterPosition(view)));
+                Navigation.findNavController(view).navigate(R.id.fragmentDetalle, enviarComponente);
+                //enviarComponente.putSerializable("mi_componente", listaComponente.get(recyclerViewComponente.getChildAdapterPosition(view)));
+                //getParentFragmentManager().setFragmentResult("altavoz", enviarComponente);
+                //navController.navigate(R.id.fragmentDetalle);
             }
         });
 

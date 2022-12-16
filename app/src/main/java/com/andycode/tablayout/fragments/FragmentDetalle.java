@@ -45,8 +45,13 @@ public class FragmentDetalle extends Fragment {
         imagenComponenteDetalle = viewFragmentDetalle.findViewById(R.id.imagenComponenteDetalle);
         navController = Navigation.findNavController(viewFragmentDetalle); //creo el navegador entre fragments de tipo NavController
 
+        componente = (ComponenteVo) getArguments().getSerializable("mi_dato");
 
-        getParentFragmentManager().setFragmentResultListener("altavoz", this, new FragmentResultListener() {
+        nombreComponenteDetalle.setText(componente.getNombreComponente());
+        infoComponenteDetalle.setText(componente.getInfoComponente());
+        imagenComponenteDetalle.setImageResource(componente.getImagenComponente());
+
+/*        getParentFragmentManager().setFragmentResultListener("altavoz", this, new FragmentResultListener() {
             @Override
             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
 
@@ -56,6 +61,6 @@ public class FragmentDetalle extends Fragment {
                 infoComponenteDetalle.setText(componente.getInfoComponente());
                 imagenComponenteDetalle.setImageResource(componente.getImagenComponente());
             }
-        });
+        });*/
     }
 }
